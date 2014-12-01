@@ -1,0 +1,146 @@
+Documentación del repositorio
+
+0. Introducción
+
+Esta es una guia detallada de como debemos hacer cada subida y donde debemos guardar cada archivo y con que nombre, 
+para tener un orden dentro del proyecto. 
+
+Dejaré fuera una guía rápida por si una vez leída y comprendida necesitais consultar solo algunos datos, 
+por si no os acordais donde meter una textura (o lo que sea) o que nombre ponerle.
+
+1. Bajarse el proyecto
+
+Aunque creo que ya lo habéis hecho, os cuento más o menos como bajar el proyecto. 
+
+Si tenéis el repositorio ya bajado donde no debe, podeis borrarlo haciendo click derecho sobre el repositorio en la lista
+de repositorios que tendréis a la izquierda, bajo el botón '+'.
+
+Una vez abrais el cliente de GitHub, os saldrá un botón con un '+' arriba a la izquierda y os dará dos opciones "Crear" y "Clonar".
+Si seleccionais "clonar" saldrá una lista de repositorios que podéis bajar. Seleccionas kaitohack\Coma y pincahis en clonar.
+Os pedirá una ruta para guardarlo. Seleccionáis una carpeta que tenéis que haber creado previamente que estará en D:\Coma.
+Si no teneis disco duro D:\ instalarlo en el que podáis, pero que la ruta sea X:\Coma, donde X es vuestro disco duro.
+
+Cuando termine de clonarse os crearé alguna de las carpetas de la jerarquia. Las carpetas que no estén, es porque no se han creado aun
+ya que parar crear una carpeta en el repositorio debe contener algo, sino, no se puede crear, así que están pendientes de crearse aun.
+Como por ejemplo External, Docs, Meshes, Textures ...
+
+2. Actualizar el repositorio
+
+Bajar:
+	Con el programa de github maravilloso y bonito, actualizar el repositorio es tan sencillo como pulsar el botón "sync" arriba a la derecha.
+	Os saldrá un +1 (o +2, o +43) dependiendo del número de actualizaciones que haya.
+	
+Subir Archivos:
+	Para subir archivos, debereís pinchar en el botón "show" del cuadro central que pone "Uncommitted changes" 
+	y seleccionar de la lista de archivos que teneis a la derecha (que son vuestros archivos modificados) todos los archivos que quereis subir.
+	Esta lista solo os saldrá cuando tengais archivos sin modificar, y os salga el menu de "Uncommitted changes"
+	
+	Luego debereis poner un resumen de la subida "Summary" (a la izquierda de lista) y una descripción (en "Description") más densa sobre que cambios habeis hecho.
+	Pulsais en "commit to master" y se os creará una "subida" y os aparecerá en la lista "Unsynced changes" en el cuadro central. 
+	Cuando hayais terminado podeis clickar en "Sync" se subirá esa subida y todas las que tengais en esa lista.
+	
+	NO, seleccioneis todos los archivos, por lo que más querais. Seleccionad solo los archivos que habeis modificado. 
+	Y si os sale alguno modificado que no habéis tocado, click derecho sobre el archivo y pinchais en "discard changes".
+
+2. Jerarquia
+
+Esta es la jerarquia de carpetas del directorio, aqui os explico donde tiene que estar instalado y que es lo que lleva cada carpeta.
+La ruta del proyecto es en D:\Coma. Sino teneis disco duro D, instalarlo donde podais, pero que la ruta sea X:\Coma 
+
+Los nombres de las carpetas con estra estructura "<name>" es porque el nombre de la carpeta varía según su contenido. 
+El nombre será el contenido de la carpeta sin las reglas de nomenclatura.  
+Así pues, si la carpeta dentro de C:\Coma\SRC\Coma\Meshes\<Mesh name> que contenga la malla de una silla se llamará Silla: 
+D:\Coma\SRC\Meshes\Silla y dentro contendría la malla de la sillam que será SM_Silla.fbx, sus texturas y sus materiales.
+
+D:\Coma
+	\SRC - Proyecto de Unreal. Solo archivos de Unreal.
+		\Coma - Nuestros propios archivos de Unreal. Ajenos a los que importa Unreal por defecto
+			\BluePrints - Blueprints de nuestro proyecto
+			\Meshes - Mallas
+				\<Mesh Name> - Una carpeta para cada malla que contendrá la malla
+					\Resources - Recursos necesarios para la malla
+						\Materials - Materiales específicos para cada malla
+						\Textures - Texturas específicas para cada malla
+						\Animations - Animaciones en caso de tenerlas
+				
+			\Maps - Mapas
+			
+			
+		
+	\External - Archivos del proyecto que no son de Unreal, pero que este usa para importar
+		\Meshes - Mallas 
+			\<Mesh Name> - Una carpeta para cada malla que contendrá la malla
+				\Resources - Recursos necesarios para la malla
+					\Textures - Texturas para cada malla
+					\Animations - Animaciones en caso de tenerlas
+		\Textures - Texturas genéricas
+		
+	\Docs - Documentación general que necesitemos en el proyecto. Documentos de diseño, textos varios, etc
+	
+	\Resources - Todo lo demás que necesitemos para el proyecto, como documentación, referencias
+		\Documentación
+		\Referencias
+	
+3. Compendio/nomemclatura de nombres
+
+Para que esto no se vaya de madre y no tengamos todo el proyecto hecho un caos, 
+vamos a definir una nomezclatura que deberían cumplir todos los nombres de archivos que subamos al repositorio. 
+Esto luego nos ayudará a encontrar cosas cuando estemos trabajando con el editor de unreal. 
+
+Por poneros un ejemplo. Si tenemos una malla SM_Silla y y queremos buscar su textura para asignarsela al material, 
+será tan sencillo como buscar la D_Silla (para la textura difusa) y N_Silla para la textura de normales. 
+
+Los nombres o los ponemos todos en ingles o todos en español, me da igual, podemos decidirlo cuando querais.
+
+Mallas:
+	- SM_<mesh name> para las mallas estáticas (SM de Static Mesh)
+Texturas
+	- T_<mesh name>_D para la textura difusa
+	- T_<mesh name>_N para la mapa de normales
+	- T_<mesh name>_M para la textura métalica que indica que partes del objeto son métalicas y cuales no
+Materiales
+	- MT_<mesh name>
+Animaciones
+	- <mesh name>@<animación>
+	
+
+4. Ejemplo práctico
+
+	Pongamos que hacemos una puerta con sus animaciones y texturas, cuando la subamos al proyecto deberemos guardarla en dos sitios.
+	Esto es porque Unreal no guarda el archivo original, cuando lo meteis en el editor Unreal lo importa como un archivo propio (.uasset), 
+	y no puedes volver a editarlo. Esto quiere decir, que si queremos reditar una malla o una textura no podremos hacerlo, tendremos que 
+	editar la malla original (la que está guardada en External) y editarla, una vez edita la reimportaremos a Unreal. Por eso es necesario
+	guardar en algun sitio, fuera del proyecto de Unreal, los archivos originales (en nuestro caso en External).
+	
+	1. En la carpeta C:\Coma\External\Meshes con esta jerararquia:
+	
+	D:\Coma\External\Meshes
+						\Puerta
+							\Puerta.fbx
+							\Resources
+								\Textures
+									\T_Puerta_D.tga
+									\T_Puerta_N.tga
+									\T_Puerta_M.tga
+								\Animations
+									\SM_Puerta@Open.fbx
+									\SM_Puerta@Close.fbx
+	
+	2. Cuando lo tengamos todo dentro de external pasaremos a importar a Unreal la malla y sus recursos. Quedaría tal que así (los archivos de unreal son .uassets):
+	
+	D:\Coma\SRC\Coma\Meshes
+						\Puerta
+							\Puerta.uasset
+							\Resources
+								\Materials
+									\M_Puerta.uasset
+								\Textures
+									\T_Puerta_D.uasset
+									\T_Puerta_N.uasset
+									\T_Puerta_M.uasset
+								\Animations
+									\SM_Puerta@Open.uasset
+									\SM_Puerta@Close.uasset
+	
+	
+								
