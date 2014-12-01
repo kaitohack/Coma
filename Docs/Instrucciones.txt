@@ -42,7 +42,7 @@ Subir Archivos:
 	NO, seleccioneis todos los archivos, por lo que más querais. Seleccionad solo los archivos que habeis modificado. 
 	Y si os sale alguno modificado que no habéis tocado, click derecho sobre el archivo y pinchais en "discard changes".
 
-2. Jerarquia
+3. Jerarquia
 
 Esta es la jerarquia de carpetas del directorio, aqui os explico donde tiene que estar instalado y que es lo que lleva cada carpeta.
 La ruta del proyecto es en D:\Coma. Sino teneis disco duro D, instalarlo donde podais, pero que la ruta sea X:\Coma 
@@ -81,7 +81,7 @@ D:\Coma
 		\Documentación
 		\Referencias
 	
-3. Compendio/nomemclatura de nombres
+4. Compendio/nomemclatura de nombres
 
 Para que esto no se vaya de madre y no tengamos todo el proyecto hecho un caos, 
 vamos a definir una nomezclatura que deberían cumplir todos los nombres de archivos que subamos al repositorio. 
@@ -104,7 +104,7 @@ Animaciones
 	- <mesh name>@<animación>
 	
 
-4. Ejemplo práctico
+5. Ejemplo práctico
 
 	Pongamos que hacemos una puerta con sus animaciones y texturas, cuando la subamos al proyecto deberemos guardarla en dos sitios.
 	Esto es porque Unreal no guarda el archivo original, cuando lo meteis en el editor Unreal lo importa como un archivo propio (.uasset), 
